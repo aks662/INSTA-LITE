@@ -2,7 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const userRoutes = require('./routes/users_routes.cjs');
-// import postRoutes from './routes/posts.routes.js';
+const postRoutes = require('./routes/posts_routes.cjs');
 
 
 const app = express();
@@ -16,8 +16,8 @@ app.get('/health', (req, res) => {
 
 // Mount routers
 app.use('/', userRoutes);
-// app.use('/posts', postRoutes);
+app.use('/', postRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
+  console.log(`Server started on port http://localhost:${PORT}`);
 });
